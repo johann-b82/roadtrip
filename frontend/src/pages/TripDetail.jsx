@@ -8,6 +8,7 @@ import TripMap from '../components/TripMap';
 import RouteSummary from '../components/RouteSummary';
 import ConfirmDialog from '../components/ConfirmDialog';
 import TripCoverPhoto from '../components/TripCoverPhoto';
+import POIPanel from '../components/POIPanel';
 
 // Stop list skeleton (2-3 items per UI-SPEC)
 function StopSkeleton() {
@@ -136,6 +137,14 @@ export default function TripDetail() {
           )}
         </div>
       </div>
+
+      {/* POI discovery panel — appears when a stop marker is clicked */}
+      {selectedStop && (
+        <POIPanel
+          stop={selectedStop}
+          onClose={() => setSelectedStop(null)}
+        />
+      )}
 
       {/* Delete stop confirm dialog (D-13) */}
       {deletingStop && (
