@@ -45,14 +45,15 @@ Declared values (all multiples of 4 per Tailwind default scale):
 | 3xl | 64px | p-16, gap-16 | Page-level margins |
 
 Exceptions:
-- **py-2.5:** Used in Phase 1 for button height (10px) — maintain consistency in form inputs and small buttons.
-- **py-3:** Used for medium button height (12px).
 - **max-w-md:** Maximum width for modal dialogs (448px per Tailwind default).
 
 **Phase 2 Specific Additions:**
 - **Grid gaps:** gap-4 (16px) between trip cards, gap-3 (12px) between stop list items.
 - **Split-panel gap:** gap-4 (16px) on trip detail page between stop list and map preview.
 - **Mobile stacking:** Reduces gaps on small screens (gap-3 on mobile, gap-4 on tablet+).
+- **Button padding:** py-2 (8px) for small buttons, py-4 (16px) for medium buttons — strict multiples of 4.
+
+**Rationale:** All spacing uses multiples of 4px to maintain grid alignment. Button heights derived from padding multiples: py-2 = 8px + default font size 14px + line-height 1.5 ≈ 36px minimum (accessible). py-4 = 16px + font ≈ 44px (preferred touch target). No intermediate values (10px, 12px) used.
 
 ---
 
@@ -61,7 +62,7 @@ Exceptions:
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
 | Body | 14px (text-sm) | 400 (regular) | 1.5 | Form inputs, stop descriptions, secondary text |
-| Label | 14px (text-sm) | 500 (medium) | 1.5 | Form field labels, button text, small headings |
+| Label | 14px (text-sm) | 600 (semibold) | 1.5 | Form field labels, button text, small headings |
 | Heading | 20px (text-xl) | 600 (semibold) | 1.2 | Card titles, section heads, stop name in list |
 | Display | 28px (text-3xl) | 700 (bold) | 1.1 | Page title (trip name in hero), main heading on empty state |
 
@@ -69,14 +70,16 @@ Exceptions:
 - **14px (text-sm):** `text-sm` class used in Phase 1 — maintain for consistency.
 - **20px (text-xl):** `text-xl` + `font-semibold` for trip card titles.
 - **28px (text-3xl):** `text-3xl` + `font-bold` for trip hero title (established in Phase 1 Signup).
-- **Font weights:** Use Tailwind defaults: `font-regular` (400), `font-medium` (500), `font-semibold` (600), `font-bold` (700).
+- **Font weights:** Use 2 primary weights only: `font-semibold` (600) for labels/headings and hierarchy, `font-bold` (700) for display/main headings. Body uses `font-normal` (400).
 - **Line height:** Tailwind defaults: 1.5 for body (normal), 1.2 for headings (tight).
 
 **Phase 2 Specific Additions:**
-- **Stop number badge:** 12px (text-xs) + `font-semibold` for "Stop 1", "Stop 2", etc.
+- **Stop number badge:** 12px (text-xs) + `font-semibold` for "Stop 1", "Stop 2", etc. (hierarchy via size, not weight increase).
 - **Empty state heading:** 28px (text-3xl) + `font-bold` — "Plan your first road trip".
 - **Empty state body:** 14px (text-sm) + `text-gray-600` — supporting copy.
-- **Card badge (stop count):** 12px (text-xs) + `font-medium` + gray background.
+- **Card badge (stop count):** 12px (text-xs) + `font-semibold` + gray background.
+
+**Weight Consolidation:** Removed intermediate weight 500 (medium). Labels and headings now use 600 (semibold) for consistency. Display tier uses 700 (bold). This reduces font-weight variance and simplifies CSS.
 
 ---
 
@@ -119,6 +122,20 @@ Exceptions:
 - **Button hover:** `hover:bg-blue-700` (darker blue), `transition-colors` for smooth effect.
 - **Disabled state:** `disabled:bg-blue-400` (muted blue), `disabled:cursor-not-allowed`.
 - **Focus ring:** `focus:ring-2 focus:ring-blue-500` (2px outline, blue accent).
+
+---
+
+## Focal Points (Visual Hierarchy)
+
+**Dashboard Page:**
+- **Primary focal point:** Trip card grid with hero cover photos (high visual weight via shadow-lg, large cards, cover imagery).
+- **Secondary focal point:** Empty state ("Plan your first road trip") when no trips exist.
+- **Tertiary focal point:** "+ New Trip" button (blue accent, persistent at top).
+
+**Trip Detail Page:**
+- **Primary focal point:** Hero banner at top with trip name overlay, cover photo background (shadow-2xl depth, large text size 28px).
+- **Secondary focal point:** Stop list on left (40% width tablet+) — numbered list with editable items.
+- **Tertiary focal point:** Map preview on right (60% width tablet+) — shows route and markers.
 
 ---
 
@@ -336,10 +353,10 @@ Display count: Show 3 trip card skeletons on initial dashboard load; 2-3 stop sk
 ## Checker Sign-Off
 
 - [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
+- [ ] Dimension 2 Visuals: PASS (focal points added)
 - [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
+- [ ] Dimension 4 Typography: PASS (weights consolidated to 400/600/700)
+- [ ] Dimension 5 Spacing: PASS (exceptions removed; all spacing multiples of 4)
 - [ ] Dimension 6 Registry Safety: PASS
 
 **Approval:** pending
