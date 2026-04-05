@@ -4,32 +4,7 @@ import { useTrips } from '../hooks/useTrips';
 import AppNavBar from '../components/AppNavBar';
 import TripCard from '../components/TripCard';
 import CreateTripModal from '../components/CreateTripModal';
-
-// Inline ConfirmDialog for delete (full version in plan 06 -- this is functional)
-function ConfirmDialog({ title, message, confirmText, onConfirm, onCancel }) {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-2xl w-full max-w-md p-8">
-        <h2 className="text-xl font-semibold text-slate-800 mb-2">{title}</h2>
-        <p className="text-sm text-slate-600 mb-6">{message}</p>
-        <div className="flex gap-3 justify-end">
-          <button
-            onClick={onCancel}
-            className="px-4 py-2 text-sm font-semibold border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={onConfirm}
-            className="px-4 py-2 text-sm font-semibold bg-red-600 text-white rounded-lg hover:bg-red-700"
-          >
-            {confirmText}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+import ConfirmDialog from '../components/ConfirmDialog';
 
 // Skeleton card for loading state (3 shown per UI-SPEC)
 function TripCardSkeleton() {

@@ -4,32 +4,8 @@ import { useTrip } from '../hooks/useTrip';
 import AppNavBar from '../components/AppNavBar';
 import StopList from '../components/StopList';
 import MapPreview from '../components/MapPreview';
-
-// Inline ConfirmDialog (same pattern as Dashboard — plan 06 extracts shared component)
-function ConfirmDialog({ title, message, confirmText, onConfirm, onCancel }) {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-2xl w-full max-w-md p-8">
-        <h2 className="text-xl font-semibold text-slate-800 mb-2">{title}</h2>
-        <p className="text-sm text-slate-600 mb-6">{message}</p>
-        <div className="flex gap-3 justify-end">
-          <button
-            onClick={onCancel}
-            className="px-4 py-2 text-sm font-semibold border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={onConfirm}
-            className="px-4 py-2 text-sm font-semibold bg-red-600 text-white rounded-lg hover:bg-red-700"
-          >
-            {confirmText}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+import ConfirmDialog from '../components/ConfirmDialog';
+import TripCoverPhoto from '../components/TripCoverPhoto';
 
 // Stop list skeleton (2-3 items per UI-SPEC)
 function StopSkeleton() {
@@ -53,7 +29,7 @@ function StopSkeleton() {
 export default function TripDetail() {
   const { tripId } = useParams();
   const navigate = useNavigate();
-  const { trip, stops, isLoading, error, addStop, editStop, removeStop, reorderStops } = useTrip(tripId);
+  const { trip, stops, isLoading, error, photoUrls, photoMetadata, addStop, editStop, removeStop, reorderStops } = useTrip(tripId);
   const [deletingStop, setDeletingStop] = useState(null);
   const [toast, setToast] = useState(null);
 
@@ -116,26 +92,13 @@ export default function TripDetail() {
         </button>
       </div>
 
-      {/* Cover photo hero (D-05) */}
+      {/* Cover photo hero (D-05) with photo cycling (D-15) */}
       {trip && (
-        <div className="relative h-48 md:h-64 overflow-hidden">
-          {trip.cover_photo_url ? (
-            <img
-              src={trip.cover_photo_url}
-              alt={trip.name}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-700" />
-          )}
-          {/* Trip name + description overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-end p-6">
-            <h1 className="text-3xl font-bold text-white">{trip.name}</h1>
-            {trip.description && (
-              <p className="text-sm text-white opacity-80 mt-1">{trip.description}</p>
-            )}
-          </div>
-        </div>
+        <TripCoverPhoto
+          trip={trip}
+          photoUrls={photoUrls}
+          photoMetadata={photoMetadata}
+        />
       )}
 
       {/* Split panel body (D-04) */}
