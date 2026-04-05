@@ -48,9 +48,9 @@ Exceptions:
 - **max-w-md:** Maximum width for modal dialogs (448px per Tailwind default).
 
 **Phase 2 Specific Additions:**
-- **Grid gaps:** gap-4 (16px) between trip cards, gap-3 (12px) between stop list items.
+- **Grid gaps:** gap-4 (16px) between trip cards, gap-4 (16px) between stop list items.
 - **Split-panel gap:** gap-4 (16px) on trip detail page between stop list and map preview.
-- **Mobile stacking:** Reduces gaps on small screens (gap-3 on mobile, gap-4 on tablet+).
+- **Mobile stacking:** Reduces gaps on small screens (gap-2 on mobile, gap-4 on tablet+).
 - **Button padding:** py-2 (8px) for small buttons, py-4 (16px) for medium buttons — strict multiples of 4.
 
 **Rationale:** All spacing uses multiples of 4px to maintain grid alignment. Button heights derived from padding multiples: py-2 = 8px + default font size 14px + line-height 1.5 ≈ 36px minimum (accessible). py-4 = 16px + font ≈ 44px (preferred touch target). No intermediate values (10px, 12px) used.
@@ -296,7 +296,7 @@ Tablet+ (≥ 768px):   Side-by-side (stop list left 40%, map right 60%)
 
 ### Loading (Skeleton Screens)
 - **Trip Card Skeleton:** Gray placeholder card (same size as trip card) with animated shimmer.
-- **Stop List Skeleton:** 3 gray bars (16px tall each) stacked with gap-3.
+- **Stop List Skeleton:** 3 gray bars (16px tall each) stacked with gap-4.
 - **Map Skeleton:** Gray rectangle (200px tall) with animated shimmer.
 - **Form Skeleton:** Input-shaped gray bars for address, description, date fields.
 
