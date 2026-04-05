@@ -14,11 +14,11 @@ Users can plan a complete camper road trip — from home to stops to POIs — an
 
 - [x] Multi-user authentication (email/password) — Validated in Phase 1: Authentication & User Setup
 - [x] User-defined home location as trip starting point — Validated in Phase 1: Authentication & User Setup
+- [x] Create trips with name, description, and auto-fetched cover photo (Unsplash search) — Validated in Phase 2: Trip & Stop Management
+- [x] Add stops with address autocomplete (Nominatim/OSM), description, and start/end dates — Validated in Phase 2: Trip & Stop Management
+- [x] Reorder, edit, and delete stops within a trip — Validated in Phase 2: Trip & Stop Management
 
 ### Active
-- [ ] Create trips with name, description, and auto-fetched cover photo (Unsplash search)
-- [ ] Add stops with address autocomplete (Nominatim/OSM), description, and start/end dates
-- [ ] Reorder, edit, and delete stops within a trip
 - [ ] Display full trip on an OpenStreetMap map (Leaflet) with route, distance, and drive time (OSRM)
 - [ ] Show POIs around each stop with images and ratings (Overpass API / OSM data)
 - [ ] POI search and storage in PostgreSQL
@@ -78,4 +78,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-05 after Phase 1 completion*
+*Last updated: 2026-04-05 after Phase 2 completion*
