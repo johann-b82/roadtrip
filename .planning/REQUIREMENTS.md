@@ -21,21 +21,21 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Trip Management
 
-- [ ] **TRIP-01**: User can create a trip with name and short description
-- [ ] **TRIP-02**: User can edit trip name and description
-- [ ] **TRIP-03**: User can delete a trip
-- [ ] **TRIP-04**: Trip cover photo is automatically fetched from Unsplash based on description
+- [x] **TRIP-01**: User can create a trip with name and short description
+- [x] **TRIP-02**: User can edit trip name and description
+- [x] **TRIP-03**: User can delete a trip
+- [x] **TRIP-04**: Trip cover photo is automatically fetched from Unsplash based on description
 - [ ] **TRIP-05**: User can share a trip via read-only link
 
 ### Stop Management
 
-- [ ] **STOP-01**: User can add a stop to a trip with address autocomplete (Nominatim search-as-you-type)
-- [ ] **STOP-02**: User can select a matching address from autocomplete results
-- [ ] **STOP-03**: Address and short description are stored for each stop
-- [ ] **STOP-04**: User can set start and end dates for each stop
-- [ ] **STOP-05**: User can reorder stops via drag-and-drop
-- [ ] **STOP-06**: User can edit an existing stop (address, description, dates)
-- [ ] **STOP-07**: User can delete a stop from a trip
+- [x] **STOP-01**: User can add a stop to a trip with address autocomplete (Nominatim search-as-you-type)
+- [x] **STOP-02**: User can select a matching address from autocomplete results
+- [x] **STOP-03**: Address and short description are stored for each stop
+- [x] **STOP-04**: User can set start and end dates for each stop
+- [x] **STOP-05**: User can reorder stops via drag-and-drop
+- [x] **STOP-06**: User can edit an existing stop (address, description, dates)
+- [x] **STOP-07**: User can delete a stop from a trip
 
 ### Map & Routing
 
@@ -112,18 +112,18 @@ Which phases cover which requirements.
 | AUTH-04 | Phase 1 | Complete |
 | PROF-01 | Phase 1 | Complete |
 | PROF-02 | Phase 1 | Complete |
-| TRIP-01 | Phase 2 | Pending |
-| TRIP-02 | Phase 2 | Pending |
-| TRIP-03 | Phase 2 | Pending |
-| TRIP-04 | Phase 2 | Pending |
+| TRIP-01 | Phase 2 | Complete |
+| TRIP-02 | Phase 2 | Complete |
+| TRIP-03 | Phase 2 | Complete |
+| TRIP-04 | Phase 2 | Complete |
 | TRIP-05 | Phase 4 | Pending |
-| STOP-01 | Phase 2 | Pending |
-| STOP-02 | Phase 2 | Pending |
-| STOP-03 | Phase 2 | Pending |
-| STOP-04 | Phase 2 | Pending |
-| STOP-05 | Phase 2 | Pending |
-| STOP-06 | Phase 2 | Pending |
-| STOP-07 | Phase 2 | Pending |
+| STOP-01 | Phase 2 | Complete |
+| STOP-02 | Phase 2 | Complete |
+| STOP-03 | Phase 2 | Complete |
+| STOP-04 | Phase 2 | Complete |
+| STOP-05 | Phase 2 | Complete |
+| STOP-06 | Phase 2 | Complete |
+| STOP-07 | Phase 2 | Complete |
 | MAP-01 | Phase 3 | Pending |
 | MAP-02 | Phase 3 | Pending |
 | MAP-03 | Phase 3 | Pending |

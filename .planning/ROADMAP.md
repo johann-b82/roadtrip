@@ -76,7 +76,7 @@ Plans:
 **Plans:** 6 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Database schema (trips, stops, unsplash_cache tables) + backend models
+- [x] 02-01-PLAN.md — Database schema (trips, stops, unsplash_cache tables) + backend models
 - [ ] 02-02-PLAN.md — Backend API routes: trip CRUD, stop CRUD + reorder, Unsplash proxy
 - [ ] 02-03-PLAN.md — Frontend data layer: API services, Zustand trip store, useTrips + useTrip hooks
 - [ ] 02-04-PLAN.md — Trip dashboard: AppNavBar, TripCard, CreateTripModal, Dashboard page
