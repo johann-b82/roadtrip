@@ -27,6 +27,11 @@ app.use('/auth', require('./auth/routes'));
 app.use('/api/geocoding', require('./geocoding/routes'));
 app.use('/api/users', require('./users/routes'));
 
+// Phase 2: Trip & Stop Management
+app.use('/api/trips', require('./trips/routes'));
+app.use('/api', require('./stops/routes'));          // stops uses /trips/:tripId/stops and /stops/:id
+app.use('/api/unsplash', require('./unsplash/routes'));
+
 // Express 5: async errors propagate automatically
 // Add 404 handler
 app.use((req, res) => {
