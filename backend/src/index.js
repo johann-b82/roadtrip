@@ -20,10 +20,10 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Mount routers (added in later plans)
-// app.use('/auth', require('./auth/routes'));
-// app.use('/api/users', require('./users/routes'));
-// app.use('/api/geocoding', require('./geocoding/routes'));
+// Mount routers
+// app.use('/auth', require('./auth/routes')); // mounted by plan 01-02
+app.use('/api/geocoding', require('./geocoding/routes'));
+app.use('/api/users', require('./users/routes'));
 
 // Express 5: async errors propagate automatically
 // Add 404 handler
