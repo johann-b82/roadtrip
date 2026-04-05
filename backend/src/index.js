@@ -32,6 +32,10 @@ app.use('/api/trips', require('./trips/routes'));
 app.use('/api', require('./stops/routes'));          // stops uses /trips/:tripId/stops and /stops/:id
 app.use('/api/unsplash', require('./unsplash/routes'));
 
+// Phase 3: Map Visualization & POI Discovery
+app.use('/api/trips', require('./routing/routes'));  // /:tripId/route -> /api/trips/:tripId/route
+app.use('/api', require('./pois/routes'));            // /stops/:stopId/pois -> /api/stops/:stopId/pois
+
 // Express 5: async errors propagate automatically
 // Add 404 handler
 app.use((req, res) => {
