@@ -7,6 +7,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Onboarding from './pages/Onboarding';
 import Dashboard from './pages/Dashboard';
+import TripDetail from './pages/TripDetail';
 
 function AppRoutes() {
   useAuthRefresh(); // Start background silent refresh
@@ -26,6 +27,11 @@ function AppRoutes() {
       <Route path="/dashboard" element={
         <ProtectedRoute>
           <Dashboard />
+        </ProtectedRoute>
+      } />
+      <Route path="/trips/:tripId" element={
+        <ProtectedRoute>
+          <TripDetail />
         </ProtectedRoute>
       } />
     </Routes>
