@@ -45,7 +45,14 @@ Four-phase MVP roadmap for a multi-user web-based road trip planner. Each phase 
 5. User can set and update a home location as their default trip starting point
 6. User can return to app and home location persists across sessions
 
-**Plans:** TBD
+**Plans:** 5 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold: Docker Compose, PostgreSQL schema, Express 5 skeleton, React 19 + Vite + Tailwind 4 frontend
+- [ ] 01-02-PLAN.md — Backend auth API: signup, login, logout, refresh token rotation, forgot/reset password (bcrypt, JWT, Resend)
+- [ ] 01-03-PLAN.md — Backend geocoding proxy (Nominatim) and user profile endpoints (GET/PUT home location)
+- [ ] 01-04-PLAN.md — Frontend auth UI: Zustand store, axios client, auth hooks, Login/Signup/ForgotPassword/ResetPassword pages
+- [ ] 01-05-PLAN.md — Frontend onboarding: Nominatim address hook, AddressInput autocomplete, MapPreview, Onboarding page
 
 ---
 
@@ -117,7 +124,7 @@ Four-phase MVP roadmap for a multi-user web-based road trip planner. Each phase 
 
 | Phase | Requirements | Success Criteria | Status | Completed |
 |-------|--------------|------------------|--------|-----------|
-| 1. Auth & User Setup | 6 | 6 | Not started | - |
+| 1. Auth & User Setup | 6 | 6 | Planned | - |
 | 2. Trip & Stop Management | 14 | 7 | Not started | - |
 | 3. Map Visualization & POI Discovery | 9 | 6 | Not started | - |
 | 4. Deployment & Polish | 3 | 5 | Not started | - |
@@ -176,4 +183,5 @@ Phase 4: Deployment & Polish
 ---
 
 *Roadmap created: 2026-04-05*  
-*Next step: `/gsd:plan-phase 1`*
+*Phase 1 planned: 2026-04-05*  
+*Next step: `/gsd:execute-phase 1`*
