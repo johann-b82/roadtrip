@@ -125,7 +125,13 @@ Plans:
 4. User can share a trip via read-only link that non-users can view without authentication (map, stops, POIs visible)
 5. Monitoring and logging are configured so issues can be diagnosed in production
 
-**Plans:** TBD
+**Plans:** 4 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Production Docker: multi-stage Dockerfiles, Nginx reverse proxy, OSRM self-hosted, docker-compose.yml with 5 services and health checks
+- [ ] 04-02-PLAN.md — Backend polish: pino structured logging, real /health with DB check, trip share API (POST /:id/share, GET /shared/:token)
+- [ ] 04-03-PLAN.md — Frontend polish: ErrorBoundary, sonner toasts, global error interceptor, TripMap fullscreen toggle, POIPanel mobile bottom sheet
+- [ ] 04-04-PLAN.md — Trip sharing frontend: SharedTrip page, public /trips/shared/:token route, share button in TripDetail
 
 ---
 
@@ -136,7 +142,7 @@ Plans:
 | 1. Auth & User Setup | 6 | 6/6 | Complete   | 2026-04-05 |
 | 2. Trip & Stop Management | 14 | 7/7 | Complete | 2026-04-05 |
 | 3. Map Visualization & POI Discovery | 9 | 6/6 | Complete | 2026-04-05 |
-| 4. Deployment & Polish | 3 | 5 | Not started | - |
+| 4. Deployment & Polish | 3 | 5 | Planned | - |
 
 ---
 
@@ -196,4 +202,5 @@ Phase 4: Deployment & Polish
 *Phase 2 planned: 2026-04-05*  
 *Phase 3 planned: 2026-04-05*  
 *Phase 3 completed: 2026-04-05*  
+*Phase 4 planned: 2026-04-06*  
 *Next step: `/gsd:execute-phase 4`*
