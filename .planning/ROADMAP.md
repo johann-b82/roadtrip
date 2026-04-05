@@ -81,7 +81,7 @@ Plans:
 - [x] 02-03-PLAN.md — Frontend data layer: API services, Zustand trip store, useTrips + useTrip hooks
 - [x] 02-04-PLAN.md — Trip dashboard: AppNavBar, TripCard, CreateTripModal, Dashboard page
 - [x] 02-05-PLAN.md — Stop management: StopForm, StopItem, StopList (dnd-kit), TripDetail split-panel
-- [ ] 02-06-PLAN.md — Phase wiring: shared ConfirmDialog, TripCoverPhoto, App.jsx routes, .env.example
+- [x] 02-06-PLAN.md — Phase wiring: shared ConfirmDialog, TripCoverPhoto, App.jsx routes, .env.example
 
 ---
 
