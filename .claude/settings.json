@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node __TRACKED_VAR__/.claude/get-shit-done/bin/gsd-tools.cjs commit 'docs: initialize project' --files .planning/PROJECT.md)",
+      "Bash(node __TRACKED_VAR__/.claude/get-shit-done/bin/gsd-tools.cjs config-new-project '{\"mode\":\"yolo\",\"granularity\":\"coarse\",\"parallelization\":true,\"commit_docs\":true,\"model_profile\":\"budget\",\"workflow\":{\"research\":true,\"plan_check\":true,\"verifier\":true,\"nyquist_validation\":false}}')",
+      "Bash(node __TRACKED_VAR__/.claude/get-shit-done/bin/gsd-tools.cjs commit 'chore: add project config' --files .planning/config.json)",
+      "Bash(find . -maxdepth 1 -type d -not -name \".*\" -not -name \"node_modules\" -exec test -d \"{}/.git\" \\\\; -print)",
+      "WebFetch(domain:wanderlog.com)",
+      "WebFetch(domain:trips.furkot.com)",
+      "WebFetch(domain:roadtrippers.com)",
+      "WebFetch(domain:www.geoapify.com)",
+      "WebFetch(domain:www.phocuswire.com)",
+      "Bash(node __TRACKED_VAR__/.claude/get-shit-done/bin/gsd-tools.cjs commit 'docs: create roadmap \\(4 phases\\)' --files .planning/ROADMAP.md .planning/STATE.md .planning/REQUIREMENTS.md CLAUDE.md)"
+    ]
+  }
+}

@@ -24,8 +24,8 @@ app.get('/health', (req, res) => {
 
 // Mount routers
 app.use('/auth', require('./auth/routes'));
-// app.use('/api/users', require('./users/routes'));
-// app.use('/api/geocoding', require('./geocoding/routes'));
+app.use('/api/geocoding', require('./geocoding/routes'));
+app.use('/api/users', require('./users/routes'));
 
 // Express 5: async errors propagate automatically
 // Add 404 handler
