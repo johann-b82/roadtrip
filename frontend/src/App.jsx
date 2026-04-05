@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import Onboarding from './pages/Onboarding';
 
 function AppRoutes() {
   useAuthRefresh(); // Start background silent refresh
@@ -18,9 +19,7 @@ function AppRoutes() {
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/onboarding" element={
         <ProtectedRoute>
-          <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-            <p className="text-slate-600">Onboarding — coming in Plan 05</p>
-          </div>
+          <Onboarding />
         </ProtectedRoute>
       } />
       <Route path="/dashboard" element={
