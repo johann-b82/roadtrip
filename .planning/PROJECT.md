@@ -12,12 +12,10 @@ Users can plan a complete camper road trip — from home to stops to POIs — an
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Multi-user authentication (email/password) — Validated in Phase 1: Authentication & User Setup
+- [x] User-defined home location as trip starting point — Validated in Phase 1: Authentication & User Setup
 
 ### Active
-
-- [ ] Multi-user authentication (email/password + Google OAuth)
-- [ ] User-defined home location as trip starting point
 - [ ] Create trips with name, description, and auto-fetched cover photo (Unsplash search)
 - [ ] Add stops with address autocomplete (Nominatim/OSM), description, and start/end dates
 - [ ] Reorder, edit, and delete stops within a trip
@@ -80,4 +78,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-05 after initialization*
+*Last updated: 2026-04-05 after Phase 1 completion*
