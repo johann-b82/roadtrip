@@ -101,7 +101,7 @@ Plans:
 5. User can search for specific types of POIs around a stop (e.g., "coffee shops", "hiking trails")
 6. Selected or discovered POIs are stored in PostgreSQL and persist across sessions
 
-**Plans:** 3 plans
+**Plans:** 0/3 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — Backend: pois table schema, OSRM routing proxy + endpoint, Overpass POI service + model + routes
@@ -135,7 +135,7 @@ Plans:
 |-------|--------------|------------------|--------|-----------|
 | 1. Auth & User Setup | 6 | 5/5 | Complete   | 2026-04-05 |
 | 2. Trip & Stop Management | 14 | 7 | Planned | - |
-| 3. Map Visualization & POI Discovery | 9 | 6 | Planned | - |
+| 3. Map Visualization & POI Discovery | 9 | 0/3 | Planned    |  |
 | 4. Deployment & Polish | 3 | 5 | Not started | - |
 
 ---

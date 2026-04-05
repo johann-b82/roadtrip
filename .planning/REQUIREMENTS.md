@@ -42,15 +42,15 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **MAP-01**: Full trip is displayed on an interactive OpenStreetMap map (Leaflet)
 - [ ] **MAP-02**: All stops are shown as markers on the map
 - [ ] **MAP-03**: Route between stops is visualized as a polyline on the map
-- [ ] **MAP-04**: Distance and drive time are calculated and displayed for each leg (OSRM)
-- [ ] **MAP-05**: Total trip distance and drive time are shown
+- [x] **MAP-04**: Distance and drive time are calculated and displayed for each leg (OSRM)
+- [x] **MAP-05**: Total trip distance and drive time are shown
 
 ### POI Discovery
 
-- [ ] **POI-01**: POIs around each stop are discovered and displayed in a list
-- [ ] **POI-02**: POI list shows images and ratings (from OSM/Overpass data)
+- [x] **POI-01**: POIs around each stop are discovered and displayed in a list
+- [x] **POI-02**: POI list shows images and ratings (from OSM/Overpass data)
 - [ ] **POI-03**: User can search for specific POIs around a stop
-- [ ] **POI-04**: Selected/discovered POIs are stored in PostgreSQL
+- [x] **POI-04**: Selected/discovered POIs are stored in PostgreSQL
 
 ### UI/UX
 
@@ -127,12 +127,12 @@ Which phases cover which requirements.
 | MAP-01 | Phase 3 | Pending |
 | MAP-02 | Phase 3 | Pending |
 | MAP-03 | Phase 3 | Pending |
-| MAP-04 | Phase 3 | Pending |
-| MAP-05 | Phase 3 | Pending |
-| POI-01 | Phase 3 | Pending |
-| POI-02 | Phase 3 | Pending |
+| MAP-04 | Phase 3 | Complete |
+| MAP-05 | Phase 3 | Complete |
+| POI-01 | Phase 3 | Complete |
+| POI-02 | Phase 3 | Complete |
 | POI-03 | Phase 3 | Pending |
-| POI-04 | Phase 3 | Pending |
+| POI-04 | Phase 3 | Complete |
 | UI-01 | Phase 2 | Complete |
 | UI-02 | Phase 2 | Complete |
 | UI-03 | Phase 2 | Complete |
