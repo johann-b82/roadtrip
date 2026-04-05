@@ -49,7 +49,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **POI-01**: POIs around each stop are discovered and displayed in a list
 - [x] **POI-02**: POI list shows images and ratings (from OSM/Overpass data)
-- [ ] **POI-03**: User can search for specific POIs around a stop
+- [x] **POI-03**: User can search for specific POIs around a stop
 - [x] **POI-04**: Selected/discovered POIs are stored in PostgreSQL
 
 ### UI/UX
@@ -131,7 +131,7 @@ Which phases cover which requirements.
 | MAP-05 | Phase 3 | Complete |
 | POI-01 | Phase 3 | Complete |
 | POI-02 | Phase 3 | Complete |
-| POI-03 | Phase 3 | Pending |
+| POI-03 | Phase 3 | Complete |
 | POI-04 | Phase 3 | Complete |
 | UI-01 | Phase 2 | Complete |
 | UI-02 | Phase 2 | Complete |
