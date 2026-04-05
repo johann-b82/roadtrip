@@ -87,3 +87,26 @@ CREATE TABLE IF NOT EXISTS unsplash_cache (
 
 CREATE INDEX IF NOT EXISTS idx_unsplash_cache_query ON unsplash_cache(search_query);
 CREATE INDEX IF NOT EXISTS idx_unsplash_cache_expires ON unsplash_cache(expires_at);
+
+-- POIs table (Phase 3)
+CREATE TABLE IF NOT EXISTS pois (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  stop_id UUID NOT NULL REFERENCES stops(id) ON DELETE CASCADE,
+  osm_id BIGINT NOT NULL,
+  osm_type VARCHAR(20) NOT NULL,
+  name TEXT NOT NULL,
+  category VARCHAR(100) NOT NULL,
+  lat NUMERIC(9, 6) NOT NULL,
+  lon NUMERIC(9, 6) NOT NULL,
+  cuisine TEXT,
+  opening_hours TEXT,
+  website TEXT,
+  phone TEXT,
+  image_url TEXT,
+  wikimedia_commons TEXT,
+  cached_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_pois_stop_id ON pois(stop_id);
+CREATE INDEX IF NOT EXISTS idx_pois_osm_id ON pois(osm_id, osm_type);
