@@ -21,8 +21,8 @@ Four-phase MVP roadmap for a multi-user web-based road trip planner. Each phase 
 ## Phases
 
 - [x] **Phase 1: Authentication & User Setup** - Users register, log in, and define home location (completed 2026-04-05)
-- [ ] **Phase 2: Trip & Stop Management** - Users create trips with stops, addresses, and descriptions
-- [ ] **Phase 3: Map Visualization & POI Discovery** - Users see interactive map with routes and points of interest
+- [x] **Phase 2: Trip & Stop Management** - Users create trips with stops, addresses, and descriptions (completed 2026-04-05)
+- [x] **Phase 3: Map Visualization & POI Discovery** - Users see interactive map with routes and points of interest (completed 2026-04-05)
 - [ ] **Phase 4: Deployment & Polish** - App fully deployed and production-ready
 
 ---
@@ -73,7 +73,7 @@ Plans:
 6. Loading states and error messages provide clear feedback (no silent failures)
 7. User can edit or delete a trip after creation
 
-**Plans:** 6 plans
+**Plans:** 6/6 plans complete
 
 Plans:
 - [x] 02-01-PLAN.md — Database schema (trips, stops, unsplash_cache tables) + backend models
@@ -101,12 +101,12 @@ Plans:
 5. User can search for specific types of POIs around a stop (e.g., "coffee shops", "hiking trails")
 6. Selected or discovered POIs are stored in PostgreSQL and persist across sessions
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [x] 03-01-PLAN.md — Backend: pois table schema, OSRM routing proxy + endpoint, Overpass POI service + model + routes
 - [x] 03-02-PLAN.md — Frontend map: TripMap, StopMarker, RoutePolyline, TripMapController, RouteSummary, useRoute hook, wire into TripDetail
-- [ ] 03-03-PLAN.md — Frontend POI: POIPanel, POICard, POISearchBar, usePOIs hook, wire into TripDetail stop click
+- [x] 03-03-PLAN.md — Frontend POI: POIPanel, POICard, POISearchBar, usePOIs hook, wire into TripDetail stop click
 
 ---
 
@@ -133,9 +133,9 @@ Plans:
 
 | Phase | Requirements | Success Criteria | Status | Completed |
 |-------|--------------|------------------|--------|-----------|
-| 1. Auth & User Setup | 6 | 5/5 | Complete   | 2026-04-05 |
-| 2. Trip & Stop Management | 14 | 7 | Planned | - |
-| 3. Map Visualization & POI Discovery | 9 | 2/3 | In Progress|  |
+| 1. Auth & User Setup | 6 | 6/6 | Complete   | 2026-04-05 |
+| 2. Trip & Stop Management | 14 | 7/7 | Complete | 2026-04-05 |
+| 3. Map Visualization & POI Discovery | 9 | 6/6 | Complete | 2026-04-05 |
 | 4. Deployment & Polish | 3 | 5 | Not started | - |
 
 ---
@@ -195,4 +195,5 @@ Phase 4: Deployment & Polish
 *Phase 1 planned: 2026-04-05*  
 *Phase 2 planned: 2026-04-05*  
 *Phase 3 planned: 2026-04-05*  
-*Next step: `/gsd:execute-phase 3`*
+*Phase 3 completed: 2026-04-05*  
+*Next step: `/gsd:execute-phase 4`*

@@ -39,9 +39,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Map & Routing
 
-- [ ] **MAP-01**: Full trip is displayed on an interactive OpenStreetMap map (Leaflet)
-- [ ] **MAP-02**: All stops are shown as markers on the map
-- [ ] **MAP-03**: Route between stops is visualized as a polyline on the map
+- [x] **MAP-01**: Full trip is displayed on an interactive OpenStreetMap map (Leaflet)
+- [x] **MAP-02**: All stops are shown as markers on the map
+- [x] **MAP-03**: Route between stops is visualized as a polyline on the map
 - [x] **MAP-04**: Distance and drive time are calculated and displayed for each leg (OSRM)
 - [x] **MAP-05**: Total trip distance and drive time are shown
 
@@ -124,9 +124,9 @@ Which phases cover which requirements.
 | STOP-05 | Phase 2 | Complete |
 | STOP-06 | Phase 2 | Complete |
 | STOP-07 | Phase 2 | Complete |
-| MAP-01 | Phase 3 | Pending |
-| MAP-02 | Phase 3 | Pending |
-| MAP-03 | Phase 3 | Pending |
+| MAP-01 | Phase 3 | Complete |
+| MAP-02 | Phase 3 | Complete |
+| MAP-03 | Phase 3 | Complete |
 | MAP-04 | Phase 3 | Complete |
 | MAP-05 | Phase 3 | Complete |
 | POI-01 | Phase 3 | Complete |
