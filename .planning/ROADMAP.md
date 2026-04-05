@@ -73,9 +73,15 @@ Plans:
 6. Loading states and error messages provide clear feedback (no silent failures)
 7. User can edit or delete a trip after creation
 
-**Plans:** TBD
+**Plans:** 6 plans
 
-**UI hint:** yes
+Plans:
+- [ ] 02-01-PLAN.md — Database schema (trips, stops, unsplash_cache tables) + backend models
+- [ ] 02-02-PLAN.md — Backend API routes: trip CRUD, stop CRUD + reorder, Unsplash proxy
+- [ ] 02-03-PLAN.md — Frontend data layer: API services, Zustand trip store, useTrips + useTrip hooks
+- [ ] 02-04-PLAN.md — Trip dashboard: AppNavBar, TripCard, CreateTripModal, Dashboard page
+- [ ] 02-05-PLAN.md — Stop management: StopForm, StopItem, StopList (dnd-kit), TripDetail split-panel
+- [ ] 02-06-PLAN.md — Phase wiring: shared ConfirmDialog, TripCoverPhoto, App.jsx routes, .env.example
 
 ---
 
@@ -125,7 +131,7 @@ Plans:
 | Phase | Requirements | Success Criteria | Status | Completed |
 |-------|--------------|------------------|--------|-----------|
 | 1. Auth & User Setup | 6 | 5/5 | Complete   | 2026-04-05 |
-| 2. Trip & Stop Management | 14 | 7 | Not started | - |
+| 2. Trip & Stop Management | 14 | 7 | Planned | - |
 | 3. Map Visualization & POI Discovery | 9 | 6 | Not started | - |
 | 4. Deployment & Polish | 3 | 5 | Not started | - |
 
@@ -184,4 +190,5 @@ Phase 4: Deployment & Polish
 
 *Roadmap created: 2026-04-05*  
 *Phase 1 planned: 2026-04-05*  
-*Next step: `/gsd:execute-phase 1`*
+*Phase 2 planned: 2026-04-05*  
+*Next step: `/gsd:execute-phase 2`*
