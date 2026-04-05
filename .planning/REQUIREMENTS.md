@@ -102,48 +102,49 @@ Explicitly excluded. Documented to prevent scope creep.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
+Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | TBD | Pending |
-| AUTH-02 | TBD | Pending |
-| AUTH-03 | TBD | Pending |
-| AUTH-04 | TBD | Pending |
-| PROF-01 | TBD | Pending |
-| PROF-02 | TBD | Pending |
-| TRIP-01 | TBD | Pending |
-| TRIP-02 | TBD | Pending |
-| TRIP-03 | TBD | Pending |
-| TRIP-04 | TBD | Pending |
-| TRIP-05 | TBD | Pending |
-| STOP-01 | TBD | Pending |
-| STOP-02 | TBD | Pending |
-| STOP-03 | TBD | Pending |
-| STOP-04 | TBD | Pending |
-| STOP-05 | TBD | Pending |
-| STOP-06 | TBD | Pending |
-| STOP-07 | TBD | Pending |
-| MAP-01 | TBD | Pending |
-| MAP-02 | TBD | Pending |
-| MAP-03 | TBD | Pending |
-| MAP-04 | TBD | Pending |
-| MAP-05 | TBD | Pending |
-| POI-01 | TBD | Pending |
-| POI-02 | TBD | Pending |
-| POI-03 | TBD | Pending |
-| POI-04 | TBD | Pending |
-| UI-01 | TBD | Pending |
-| UI-02 | TBD | Pending |
-| UI-03 | TBD | Pending |
-| DEPLOY-01 | TBD | Pending |
-| DEPLOY-02 | TBD | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| PROF-01 | Phase 1 | Pending |
+| PROF-02 | Phase 1 | Pending |
+| TRIP-01 | Phase 2 | Pending |
+| TRIP-02 | Phase 2 | Pending |
+| TRIP-03 | Phase 2 | Pending |
+| TRIP-04 | Phase 2 | Pending |
+| TRIP-05 | Phase 4 | Pending |
+| STOP-01 | Phase 2 | Pending |
+| STOP-02 | Phase 2 | Pending |
+| STOP-03 | Phase 2 | Pending |
+| STOP-04 | Phase 2 | Pending |
+| STOP-05 | Phase 2 | Pending |
+| STOP-06 | Phase 2 | Pending |
+| STOP-07 | Phase 2 | Pending |
+| MAP-01 | Phase 3 | Pending |
+| MAP-02 | Phase 3 | Pending |
+| MAP-03 | Phase 3 | Pending |
+| MAP-04 | Phase 3 | Pending |
+| MAP-05 | Phase 3 | Pending |
+| POI-01 | Phase 3 | Pending |
+| POI-02 | Phase 3 | Pending |
+| POI-03 | Phase 3 | Pending |
+| POI-04 | Phase 3 | Pending |
+| UI-01 | Phase 2 | Pending |
+| UI-02 | Phase 2 | Pending |
+| UI-03 | Phase 2 | Pending |
+| DEPLOY-01 | Phase 4 | Pending |
+| DEPLOY-02 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 32 total
-- Mapped to phases: 0
-- Unmapped: 32 (will be mapped during roadmap creation)
+- Mapped to phases: 32 ✓
+- Unmapped: 0
 
 ---
+
 *Requirements defined: 2026-04-05*
-*Last updated: 2026-04-05 after initial definition*
+*Roadmap traceability updated: 2026-04-05*
