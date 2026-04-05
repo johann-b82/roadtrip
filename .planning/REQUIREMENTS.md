@@ -9,15 +9,15 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can sign up with email and password
-- [ ] **AUTH-02**: User can log in and stay logged in across browser sessions
-- [ ] **AUTH-03**: User can log out from any page
-- [ ] **AUTH-04**: User can reset password via email link
+- [x] **AUTH-01**: User can sign up with email and password
+- [x] **AUTH-02**: User can log in and stay logged in across browser sessions
+- [x] **AUTH-03**: User can log out from any page
+- [x] **AUTH-04**: User can reset password via email link
 
 ### User Profile
 
-- [ ] **PROF-01**: User can set a home location as default trip starting point
-- [ ] **PROF-02**: User can update their home location
+- [x] **PROF-01**: User can set a home location as default trip starting point
+- [x] **PROF-02**: User can update their home location
 
 ### Trip Management
 
@@ -106,12 +106,12 @@ Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
-| PROF-01 | Phase 1 | Pending |
-| PROF-02 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
+| AUTH-04 | Phase 1 | Complete |
+| PROF-01 | Phase 1 | Complete |
+| PROF-02 | Phase 1 | Complete |
 | TRIP-01 | Phase 2 | Pending |
 | TRIP-02 | Phase 2 | Pending |
 | TRIP-03 | Phase 2 | Pending |
