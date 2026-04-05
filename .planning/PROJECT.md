@@ -17,11 +17,11 @@ Users can plan a complete camper road trip — from home to stops to POIs — an
 - [x] Create trips with name, description, and auto-fetched cover photo (Unsplash search) — Validated in Phase 2: Trip & Stop Management
 - [x] Add stops with address autocomplete (Nominatim/OSM), description, and start/end dates — Validated in Phase 2: Trip & Stop Management
 - [x] Reorder, edit, and delete stops within a trip — Validated in Phase 2: Trip & Stop Management
+- [x] Display full trip on an OpenStreetMap map (Leaflet) with route, distance, and drive time (OSRM) — Validated in Phase 3: Map Visualization & POI Discovery
+- [x] Show POIs around each stop with images and ratings (Overpass API / OSM data) — Validated in Phase 3: Map Visualization & POI Discovery
+- [x] POI search and storage in PostgreSQL — Validated in Phase 3: Map Visualization & POI Discovery
 
 ### Active
-- [ ] Display full trip on an OpenStreetMap map (Leaflet) with route, distance, and drive time (OSRM)
-- [ ] Show POIs around each stop with images and ratings (Overpass API / OSM data)
-- [ ] POI search and storage in PostgreSQL
 - [ ] Polished, responsive UI with smooth UX
 - [ ] Docker Compose deployment (frontend, backend, database)
 
@@ -78,4 +78,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-05 after Phase 2 completion*
+*Last updated: 2026-04-05 after Phase 3 completion*
