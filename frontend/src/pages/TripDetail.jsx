@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useTrip } from '../hooks/useTrip';
+import { useRoute } from '../hooks/useRoute';
 import AppNavBar from '../components/AppNavBar';
 import StopList from '../components/StopList';
-import MapPreview from '../components/MapPreview';
+import TripMap from '../components/TripMap';
+import RouteSummary from '../components/RouteSummary';
 import ConfirmDialog from '../components/ConfirmDialog';
 import TripCoverPhoto from '../components/TripCoverPhoto';
 
@@ -30,7 +32,9 @@ export default function TripDetail() {
   const { tripId } = useParams();
   const navigate = useNavigate();
   const { trip, stops, isLoading, error, photoUrls, photoMetadata, addStop, editStop, removeStop, reorderStops } = useTrip(tripId);
+  const { route, isLoading: routeLoading, error: routeError } = useRoute(tripId, stops);
   const [deletingStop, setDeletingStop] = useState(null);
+  const [selectedStop, setSelectedStop] = useState(null);
   const [toast, setToast] = useState(null);
 
   function showToast(message, type = 'error') {
@@ -75,9 +79,6 @@ export default function TripDetail() {
     }
   }
 
-  // Build stops array for MapPreview (use first stop coords for single-pin fallback)
-  const firstStopWithCoords = stops.find((s) => s.address_lat && s.address_lon);
-
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <AppNavBar />
@@ -118,18 +119,19 @@ export default function TripDetail() {
           )}
         </div>
 
-        {/* Right: Map preview (60% on tablet+) — D-06: pins only, no routes yet */}
-        <div className="w-full md:w-3/5 h-72 md:h-auto">
-          {firstStopWithCoords ? (
-            <div className="h-full">
-              <MapPreview
-                lat={firstStopWithCoords.address_lat}
-                lon={firstStopWithCoords.address_lon}
-              />
-            </div>
-          ) : (
-            <div className="h-full bg-slate-100 flex items-center justify-center">
-              <p className="text-sm text-slate-500">Add stops to see them on the map</p>
+        {/* Right: Interactive trip map (60% on tablet+) */}
+        <div className="w-full md:w-3/5 flex flex-col">
+          <div className="flex-1 min-h-[300px] md:min-h-0">
+            <TripMap
+              stops={stops}
+              routeGeometry={route?.geometry}
+              onStopClick={(stop) => setSelectedStop(stop)}
+            />
+          </div>
+          <RouteSummary route={route} stops={stops} />
+          {routeError && (
+            <div className="px-4 py-2 bg-amber-50 border-t border-amber-200 text-amber-700 text-sm">
+              Route unavailable: {routeError}
             </div>
           )}
         </div>
