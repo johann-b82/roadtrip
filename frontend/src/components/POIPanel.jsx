@@ -1,3 +1,4 @@
+import { Sheet } from 'react-modal-sheet';
 import { usePOIs } from '../hooks/usePOIs';
 import POICard from './POICard';
 import POISearchBar from './POISearchBar';
@@ -20,11 +21,9 @@ function POISkeleton() {
   );
 }
 
-export default function POIPanel({ stop, onClose }) {
-  const { pois, categories, isLoading, error, search } = usePOIs(stop?.id);
-
+function POIContent({ stop, pois, categories, isLoading, error, search, onClose }) {
   return (
-    <div className="fixed right-0 top-0 bottom-0 w-full sm:w-96 bg-white shadow-xl z-[1000] flex flex-col">
+    <>
       {/* Header */}
       <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-200 bg-white">
         <div className="flex-1 min-w-0">
@@ -35,7 +34,7 @@ export default function POIPanel({ stop, onClose }) {
         </div>
         <button
           onClick={onClose}
-          className="flex-shrink-0 p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-slate-700 transition-colors"
+          className="flex-shrink-0 p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-slate-700 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
           aria-label="Close POI panel"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -80,6 +79,42 @@ export default function POIPanel({ stop, onClose }) {
           </p>
         </div>
       )}
+    </>
+  );
+}
+
+export default function POIPanel({ stop, onClose }) {
+  const { pois, categories, isLoading, error, search } = usePOIs(stop?.id);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const contentProps = { stop, pois, categories, isLoading, error, search, onClose };
+
+  // Mobile: bottom sheet (per D-02) — half-height default, drag up for full
+  if (isMobile) {
+    return (
+      <Sheet
+        isOpen={!!stop}
+        onClose={onClose}
+        snapPoints={[0.45, 0.75, 1]}
+        initialSnap={0}
+        detent="full-height"
+      >
+        <Sheet.Container>
+          <Sheet.Header />
+          <Sheet.Content>
+            <div className="flex flex-col h-full">
+              <POIContent {...contentProps} />
+            </div>
+          </Sheet.Content>
+        </Sheet.Container>
+        <Sheet.Backdrop onTap={onClose} />
+      </Sheet>
+    );
+  }
+
+  // Desktop: fixed right panel (original layout preserved)
+  return (
+    <div className="fixed right-0 top-0 bottom-0 w-full sm:w-96 bg-white shadow-xl z-[1000] flex flex-col">
+      <POIContent {...contentProps} />
     </div>
   );
 }
