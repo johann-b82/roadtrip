@@ -1,49 +1,91 @@
 version: '3.9'
+
 services:
   postgres:
     image: postgres:18-alpine
+    restart: unless-stopped
     environment:
-      POSTGRES_DB: roadtrip
-      POSTGRES_USER: roadtrip
-      POSTGRES_PASSWORD: roadtrip_dev
+      POSTGRES_DB: ${POSTGRES_DB:-roadtrip}
+      POSTGRES_USER: ${POSTGRES_USER:-roadtrip}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./backend/src/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
-    ports:
-      - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U roadtrip"]
-      interval: 5s
-      timeout: 5s
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-roadtrip}"]
+      interval: 10s
+      timeout: 3s
       retries: 5
+      start_period: 20s
+
+  osrm:
+    build: ./osrm
+    restart: unless-stopped
+    volumes:
+      - osrmdata:/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget --quiet --tries=1 --spider http://localhost:5000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 600s
 
   backend:
     build: ./backend
+    restart: unless-stopped
     environment:
-      NODE_ENV: development
-      DATABASE_URL: postgres://roadtrip:roadtrip_dev@postgres:5432/roadtrip
-      JWT_SECRET: dev_jwt_secret_change_in_production
-      JWT_REFRESH_SECRET: dev_refresh_secret_change_in_production
-      RESEND_API_KEY: ${RESEND_API_KEY}
-      FRONTEND_URL: http://localhost:5173
-    ports:
-      - "3001:3001"
+      NODE_ENV: production
+      DATABASE_URL: postgres://${POSTGRES_USER:-roadtrip}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@postgres:5432/${POSTGRES_DB:-roadtrip}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:?JWT_REFRESH_SECRET is required}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost}
+      OSRM_BASE_URL: ${OSRM_BASE_URL:-http://osrm:5000}
+      UNSPLASH_ACCESS_KEY: ${UNSPLASH_ACCESS_KEY:-}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      PORT: 3001
     depends_on:
       postgres:
         condition: service_healthy
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
+      osrm:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/health', (r) => { if (r.statusCode !== 200) process.exit(1) }, (e) => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
 
   frontend:
     build: ./frontend
-    environment:
-      VITE_API_BASE_URL: http://localhost:3001
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget --quiet --tries=1 --spider http://localhost/ || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 20s
+
+  nginx:
+    build: ./nginx
+    restart: unless-stopped
     ports:
-      - "5173:5173"
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
+      - "80:80"
+    depends_on:
+      frontend:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget --quiet --tries=1 --spider http://localhost/ || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 20s
 
 volumes:
   pgdata:
+  osrmdata:
