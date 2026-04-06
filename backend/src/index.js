@@ -3,9 +3,13 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const passport = require('passport');
+const { logger, httpLogger } = require('./logging/logger');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Structured request logging — must be first to capture all requests
+app.use(httpLogger);
 
 // Middleware
 app.use(cors({
@@ -17,10 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(passport.initialize());
 
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
-});
+// Health check (verifies DB)
+app.use('/health', require('./health/routes'));
 
 // Mount routers
 app.use('/auth', require('./auth/routes'));
@@ -44,12 +46,12 @@ app.use((req, res) => {
 
 // Add global error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  logger.error({ err, stack: err.stack }, 'Unhandled error');
   res.status(err.status || 500).json({ error: err.message || 'Internal server error' });
 });
 
 app.listen(PORT, () => {
-  console.log(`Backend running on port ${PORT}`);
+  logger.info({ port: PORT }, 'Backend running');
 });
 
 module.exports = app;
