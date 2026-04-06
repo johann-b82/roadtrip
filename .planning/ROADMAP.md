@@ -128,7 +128,7 @@ Plans:
 **Plans:** 4 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Production Docker: multi-stage Dockerfiles, Nginx reverse proxy, OSRM self-hosted, docker-compose.yml with 5 services and health checks
+- [x] 04-01-PLAN.md — Production Docker: multi-stage Dockerfiles, Nginx reverse proxy, OSRM self-hosted, docker-compose.yml with 5 services and health checks
 - [x] 04-02-PLAN.md — Backend polish: pino structured logging, real /health with DB check, trip share API (POST /:id/share, GET /shared/:token)
 - [x] 04-03-PLAN.md — Frontend polish: ErrorBoundary, sonner toasts, global error interceptor, TripMap fullscreen toggle, POIPanel mobile bottom sheet
 - [ ] 04-04-PLAN.md — Trip sharing frontend: SharedTrip page, public /trips/shared/:token route, share button in TripDetail
