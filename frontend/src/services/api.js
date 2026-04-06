@@ -12,10 +12,17 @@ api.interceptors.response.use(
   (error) => {
     const message = error.response?.data?.error || error.message || 'Network error';
     const status = error.response?.status;
+    const url = error.config?.url || '';
+    // Public shared-trip endpoint: 401 means expired/invalid token, not a session
+    // expiry. Let the SharedTrip page render its "Link expired" UI instead of
+    // redirecting visitors to /login or showing the auth toast.
+    const isPublicSharedRequest = url.includes('/api/trips/shared/');
 
-    if (status === 401) {
+    if (status === 401 && !isPublicSharedRequest) {
       toast.error('Session expired. Please log in again.');
       window.location.href = '/login';
+    } else if (status === 401 && isPublicSharedRequest) {
+      // Silent — caller (SharedTrip) handles the expired UI
     } else if (status >= 500) {
       toast.error('Server error. Please try again later.');
     } else if (status === 404) {
