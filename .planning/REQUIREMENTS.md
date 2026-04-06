@@ -25,7 +25,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **TRIP-02**: User can edit trip name and description
 - [x] **TRIP-03**: User can delete a trip
 - [x] **TRIP-04**: Trip cover photo is automatically fetched from Unsplash based on description
-- [ ] **TRIP-05**: User can share a trip via read-only link
+- [x] **TRIP-05**: User can share a trip via read-only link
 
 ### Stop Management
 
@@ -60,8 +60,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Deployment
 
-- [ ] **DEPLOY-01**: App is fully containerized with Docker Compose (frontend, backend, database)
-- [ ] **DEPLOY-02**: Single `docker compose up` starts the entire application
+- [x] **DEPLOY-01**: App is fully containerized with Docker Compose (frontend, backend, database)
+- [x] **DEPLOY-02**: Single `docker compose up` starts the entire application
 
 ## v2 Requirements
 
@@ -116,7 +116,7 @@ Which phases cover which requirements.
 | TRIP-02 | Phase 2 | Complete |
 | TRIP-03 | Phase 2 | Complete |
 | TRIP-04 | Phase 2 | Complete |
-| TRIP-05 | Phase 4 | Pending |
+| TRIP-05 | Phase 4 | Complete |
 | STOP-01 | Phase 2 | Complete |
 | STOP-02 | Phase 2 | Complete |
 | STOP-03 | Phase 2 | Complete |
@@ -136,8 +136,8 @@ Which phases cover which requirements.
 | UI-01 | Phase 2 | Complete |
 | UI-02 | Phase 2 | Complete |
 | UI-03 | Phase 2 | Complete |
-| DEPLOY-01 | Phase 4 | Pending |
-| DEPLOY-02 | Phase 4 | Pending |
+| DEPLOY-01 | Phase 4 | Complete |
+| DEPLOY-02 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 32 total
