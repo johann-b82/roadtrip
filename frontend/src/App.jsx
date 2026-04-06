@@ -11,6 +11,7 @@ import ResetPassword from './pages/ResetPassword';
 import Onboarding from './pages/Onboarding';
 import Dashboard from './pages/Dashboard';
 import TripDetail from './pages/TripDetail';
+import SharedTrip from './pages/SharedTrip';
 
 function AppRoutes() {
   useAuthRefresh(); // Start background silent refresh
@@ -32,6 +33,7 @@ function AppRoutes() {
           <Dashboard />
         </ProtectedRoute>
       } />
+      <Route path="/trips/shared/:token" element={<SharedTrip />} />
       <Route path="/trips/:tripId" element={
         <ProtectedRoute>
           <TripDetail />

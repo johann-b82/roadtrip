@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
+import { toast } from 'sonner';
+import api from '../services/api';
 import { useTrip } from '../hooks/useTrip';
 import { useRoute } from '../hooks/useRoute';
 import AppNavBar from '../components/AppNavBar';
@@ -36,11 +38,19 @@ export default function TripDetail() {
   const { route, isLoading: routeLoading, error: routeError } = useRoute(tripId, stops);
   const [deletingStop, setDeletingStop] = useState(null);
   const [selectedStop, setSelectedStop] = useState(null);
-  const [toast, setToast] = useState(null);
+  const [isSharing, setIsSharing] = useState(false);
 
-  function showToast(message, type = 'error') {
-    setToast({ message, type });
-    setTimeout(() => setToast(null), 5000);
+  async function handleShare() {
+    setIsSharing(true);
+    try {
+      const res = await api.post(`/api/trips/${tripId}/share`);
+      await navigator.clipboard.writeText(res.data.shareUrl);
+      toast.success('Share link copied to clipboard! Link expires in 7 days.');
+    } catch (err) {
+      // Error already handled by api.js interceptor (toast shown)
+    } finally {
+      setIsSharing(false);
+    }
   }
 
   async function handleDeleteStop() {
@@ -49,7 +59,7 @@ export default function TripDetail() {
       await removeStop(deletingStop.id);
       setDeletingStop(null);
     } catch (err) {
-      showToast('Failed to delete stop. Please try again.');
+      toast.error('Failed to delete stop. Please try again.');
       setDeletingStop(null);
     }
   }
@@ -58,7 +68,7 @@ export default function TripDetail() {
     try {
       await addStop(data);
     } catch (err) {
-      showToast('Failed to add stop. Check address and try again.');
+      toast.error('Failed to add stop. Check address and try again.');
       throw err; // Let StopForm reset properly
     }
   }
@@ -67,7 +77,7 @@ export default function TripDetail() {
     try {
       await editStop(stopId, data);
     } catch (err) {
-      showToast('Failed to update stop.');
+      toast.error('Failed to update stop.');
       throw err;
     }
   }
@@ -76,7 +86,7 @@ export default function TripDetail() {
     try {
       await reorderStops(orderedIds);
     } catch (err) {
-      showToast('Failed to reorder stops.');
+      toast.error('Failed to reorder stops.');
     }
   }
 
@@ -85,12 +95,23 @@ export default function TripDetail() {
       <AppNavBar />
 
       {/* Back navigation */}
-      <div className="bg-white border-b border-slate-200 px-4 py-2">
+      <div className="bg-white border-b border-slate-200 px-4 py-2 flex items-center justify-between">
         <button
           onClick={() => navigate('/dashboard')}
           className="text-sm text-blue-600 hover:text-blue-700 font-semibold transition-colors"
         >
           &larr; Back to trips
+        </button>
+        <button
+          onClick={handleShare}
+          disabled={isSharing || !trip}
+          className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-800 font-medium transition-colors disabled:opacity-50 min-h-[44px] px-2"
+          aria-label="Share trip"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+          {isSharing ? 'Sharing...' : 'Share'}
         </button>
       </div>
 
@@ -157,15 +178,7 @@ export default function TripDetail() {
         />
       )}
 
-      {/* Toast (UI-03) */}
-      {toast && (
-        <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg text-sm font-semibold max-w-sm ${
-          toast.type === 'error' ? 'bg-red-50 text-red-700 border border-red-200' :
-          'bg-green-50 text-green-700 border border-green-200'
-        }`}>
-          {toast.message}
-        </div>
-      )}
+      {/* Toasts now rendered globally via sonner Toaster in App.jsx */}
     </div>
   );
 }
