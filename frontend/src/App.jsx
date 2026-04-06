@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Toaster } from 'sonner';
 import { useAuthRefresh } from './hooks/useAuthRefresh';
 import ProtectedRoute from './components/ProtectedRoute';
+import ErrorFallback from './components/ErrorFallback';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
@@ -41,7 +44,20 @@ function AppRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onReset={() => { window.location.href = '/'; }}
+      >
+        <Toaster
+          position="bottom-right"
+          richColors
+          toastOptions={{
+            duration: 5000,
+            error: { duration: Infinity }, // Errors persist until dismissed (per D-04)
+          }}
+        />
+        <AppRoutes />
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }
