@@ -10,7 +10,9 @@
       "WebFetch(domain:roadtrippers.com)",
       "WebFetch(domain:www.geoapify.com)",
       "WebFetch(domain:www.phocuswire.com)",
-      "Bash(node __TRACKED_VAR__/.claude/get-shit-done/bin/gsd-tools.cjs commit 'docs: create roadmap \\(4 phases\\)' --files .planning/ROADMAP.md .planning/STATE.md .planning/REQUIREMENTS.md CLAUDE.md)"
+      "Bash(node __TRACKED_VAR__/.claude/get-shit-done/bin/gsd-tools.cjs commit 'docs: create roadmap \\(4 phases\\)' --files .planning/ROADMAP.md .planning/STATE.md .planning/REQUIREMENTS.md CLAUDE.md)",
+      "Bash(npm view:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
