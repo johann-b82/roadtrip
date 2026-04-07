@@ -1,4 +1,4 @@
-FROM osrm/osrm-backend:v5.27.1
+FROM osrm/osrm-backend:latest
 RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list \
  && echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list \
  && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid \
